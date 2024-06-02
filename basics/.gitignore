@@ -1,0 +1,46 @@
+# Ignore build products and intermediate files.
+build/
+DerivedData/
+
+# Ignore Xcode project user data
+*.xcworkspace
+xcuserdata/
+
+# Ignore temporary files
+*.moved-aside
+*.swp
+*.lock
+*.xcuserstate
+
+# Ignore IDE specific files
+.idea/
+*.xcsettings
+*.xccheckout
+*.DS_Store
+
+# Ignore playground-specific files
+timeline.xctimeline
+playground.xcworkspace
+playground.sharedData
+
+# Ignore any .DS_Store files (macOS specific)
+.DS_Store
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Ignore compiled machine files
+*.o
+*.pyc
+*.pyo
+*.class
+
+# Ignore log files
+*.log
+
+# Ignore other common macOS specific files
+*.plist
+
+# Ignore personal user preferences and settings
+*.xcuserdatad
