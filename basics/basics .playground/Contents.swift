@@ -1,3 +1,4 @@
+import Foundation
 let apples = 3
 let oranges = 4
 let appleSummary = "I have \(apples) apples and \(oranges) oranges"
@@ -143,3 +144,83 @@ func calculateStatistics(scores: [Int])-> (min: Int, max: Int, sum: Int){
 
 let statistics = calculateStatistics(scores: [5,3,100,3,9])
 print(statistics)
+
+//Objects and Classes
+
+class Shape{
+    var numberOfSides = 0
+    let shapeName: String = "Polygon"
+    func simpleDescription() -> String {
+        return "A shape with \(numberOfSides) sides"
+    }
+    func anotherFunction() -> String {
+        return "shape name is \(shapeName)"
+    }
+}
+
+var shape = Shape()
+shape.numberOfSides = 7
+print(shape.anotherFunction())
+print(shape.simpleDescription()
+)
+
+class NamedShape {
+    var numberOfSides: Int = 0
+    var name: String
+    
+    init(numberOfSides: Int, name: String) {
+        self.name = name
+    }
+    
+    func simpleDescription() -> String {
+        return "A shape with \(numberOfSides) sides"
+    }
+}
+var anotherShape = NamedShape(numberOfSides: 7, name: "something")
+print(anotherShape.name)
+
+//overriding a function
+
+class Square: NamedShape {
+    var sideLength: Double
+    
+    init(sideLength: Double, name : String) {
+        self.sideLength = sideLength
+        super.init( numberOfSides: 4, name: name)
+    }
+    
+    func area()-> Double{
+        return sideLength * sideLength
+    }
+    override func simpleDescription() -> String {
+        return "A square with sides of length \(sideLength)"
+    }
+    
+    
+}
+let test = Square(sideLength: 5.3, name: "my test square")
+test.area()
+test.simpleDescription()
+
+class EquilateralTriangle : NamedShape {
+    var sidelenth  : Double = 0.0
+    
+    init(sideLength: Double, name: String)
+    {
+        self.sidelenth = sideLength
+        super.init(numberOfSides: 3, name: "equilateral traingle ")
+    }
+}
+
+class TriangleAndSquare{
+    var triangle: EquilateralTriangle {
+        willSet {
+            square.sideLength = newValue.sidelenth
+        }
+    }
+    var square: Square {
+        willSet {
+            triangle.sidelenth = newValue.sideLength
+        }
+    }
+}
